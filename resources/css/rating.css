@@ -1,0 +1,287 @@
+.responsiveness {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.responsiveness:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.responsiveness:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.responsiveness:not(:checked) > label:before {
+    content: '★ ';
+}
+.responsiveness > input:checked ~ label {
+    color: #ffc700;    
+}
+.responsiveness:not(:checked) > label:hover,
+.responsiveness:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.responsiveness > input:checked + label:hover,
+.responsiveness > input:checked + label:hover ~ label,
+.responsiveness > input:checked ~ label:hover,
+.responsiveness > input:checked ~ label:hover ~ label,
+.responsiveness > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.reliability {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.reliability:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.reliability:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.reliability:not(:checked) > label:before {
+    content: '★ ';
+}
+.reliability > input:checked ~ label {
+    color: #ffc700;    
+}
+.reliability:not(:checked) > label:hover,
+.reliability:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.reliability > input:checked + label:hover,
+.reliability > input:checked + label:hover ~ label,
+.reliability > input:checked ~ label:hover,
+.reliability > input:checked ~ label:hover ~ label,
+.reliability > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.access_and_facility {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.access_and_facility:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.access_and_facility:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.access_and_facility:not(:checked) > label:before {
+    content: '★ ';
+}
+.access_and_facility > input:checked ~ label {
+    color: #ffc700;    
+}
+.access_and_facility:not(:checked) > label:hover,
+.access_and_facility:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.access_and_facility > input:checked + label:hover,
+.access_and_facility > input:checked + label:hover ~ label,
+.access_and_facility > input:checked ~ label:hover,
+.access_and_facility > input:checked ~ label:hover ~ label,
+.access_and_facility > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.costs {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.costs:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.costs:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.costs:not(:checked) > label:before {
+    content: '★ ';
+}
+.costs > input:checked ~ label {
+    color: #ffc700;    
+}
+.costs:not(:checked) > label:hover,
+.costs:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.costs > input:checked + label:hover,
+.costs > input:checked + label:hover ~ label,
+.costs > input:checked ~ label:hover,
+.costs > input:checked ~ label:hover ~ label,
+.costs > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.integrity {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.integrity:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.integrity:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.integrity:not(:checked) > label:before {
+    content: '★ ';
+}
+.integrity > input:checked ~ label {
+    color: #ffc700;    
+}
+.integrity:not(:checked) > label:hover,
+.integrity:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.integrity > input:checked + label:hover,
+.integrity > input:checked + label:hover ~ label,
+.integrity > input:checked ~ label:hover,
+.integrity > input:checked ~ label:hover ~ label,
+.integrity > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.communication {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.communication:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.communication:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.communication:not(:checked) > label:before {
+    content: '★ ';
+}
+.communication > input:checked ~ label {
+    color: #ffc700;    
+}
+.communication:not(:checked) > label:hover,
+.communication:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.communication > input:checked + label:hover,
+.communication > input:checked + label:hover ~ label,
+.communication > input:checked ~ label:hover,
+.communication > input:checked ~ label:hover ~ label,
+.communication > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.assurance {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.assurance:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.assurance:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.assurance:not(:checked) > label:before {
+    content: '★ ';
+}
+.assurance > input:checked ~ label {
+    color: #ffc700;    
+}
+.assurance:not(:checked) > label:hover,
+.assurance:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.assurance > input:checked + label:hover,
+.assurance > input:checked + label:hover ~ label,
+.assurance > input:checked ~ label:hover,
+.assurance > input:checked ~ label:hover ~ label,
+.assurance > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.outcome {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.outcome:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.outcome:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.outcome:not(:checked) > label:before {
+    content: '★ ';
+}
+.outcome > input:checked ~ label {
+    color: #ffc700;    
+}
+.outcome:not(:checked) > label:hover,
+.outcome:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.outcome > input:checked + label:hover,
+.outcome > input:checked + label:hover ~ label,
+.outcome > input:checked ~ label:hover,
+.outcome > input:checked ~ label:hover ~ label,
+.outcome > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
