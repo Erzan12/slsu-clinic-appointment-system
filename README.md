@@ -180,11 +180,11 @@ npm run dev
 ---
 
 ## 🔐 User Roles
-#### - Admin
+#### Admin
  - Manage users, services, and system data.
-#### - Patient
+#### Patient
  - Book appointments and view records.
-#### - Specialist (Doctor/Dentist)
+#### Specialist (Doctor/Dentist)
  - Manage schedules and provide medical findings.
 
 ---
