@@ -163,11 +163,15 @@ cp .env.example .env
 ```bash
 php artisan key:generate
 ```
-7. Link storage to support images:
+7. Run Migrations: 
+```bash
+php artisan migrate
+```
+8. Link storage to support images:
 ```bash
 php artisan storage:link
 ```
-8. Start the server:
+9. Start the server:
 ```bash
 php artisan serve
 ```
