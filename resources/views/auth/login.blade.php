@@ -22,13 +22,22 @@
                             </div>
                         @enderror
                         
-                        <div class="form-group my-2">
+                        {{-- <div class="form-group my-2">
                             <label for="username">ID Number</label>
                             <input class="form-control" type="text" name="username" id="username">
                         </div>
                         <div class="form-group my-2">
                             <label for="password">Password</label>
                             <input class="form-control" type="password" name="password" id="password">
+                        </div> --}}
+                        <div class="form-floating my-3">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="ID Number">
+                            <label for="username">ID Number</label>
+                        </div>
+
+                        <div class="form-floating my-3">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <label for="password">Password</label>
                         </div>
                         <div class="d-grid">
                             <button class="btn btn-primary">Login</button>

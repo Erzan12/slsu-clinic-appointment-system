@@ -29,13 +29,38 @@
 }
 
 .form-wrapper input {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.596);
+  color: #000;
 }
 
 .form-wrapper label,
+
 .form-wrapper h3,
+
 .form-wrapper a {
   color: #fff;
+}
+
+.form-floating > .form-control {
+  background: rgba(255, 255, 255, 0.6);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+}
+
+.form-floating > label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* When focused or filled */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  color: #fff;
+}
+
+.form-floating > .form-control:focus {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: none;
 }
 
 .content-container {
