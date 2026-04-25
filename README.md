@@ -1,4 +1,4 @@
-# Readme
+# 📖 Readme
     The system's goal is to replace the clinic's manual, paper-based workflow with a completely digital, paperless one. It makes it possible for university staff and students to schedule dental and medical appointments online, cutting down on wait times and doing away with the necessity for in-person booking.
     The software increases productivity for patients, clinic employees, physicians, and dentists by digitizing records and automating appointment scheduling. It unifies schedules, medical findings, services, and patient data into one easily accessible system. Overall, the project improves service delivery by streamlining, streamlining, and streamlining clinic operations.
 
@@ -133,8 +133,14 @@ erDiagram
     APPOINTMENTS ||--o{ FINDINGS : generates
     APPOINTMENTS ||--o{ RATINGS : receives
 
-## Database Schema
+## ⚙️ Installation Guide
+1. Clone the repository:
+```bash
+git clone https://github.com/your-repo/slsu-clinic-system.git
+```
+
+## 🛢 Database Schema
 https://lucid.app/lucidchart/75038d9c-e75c-4d05-9500-691f67928e85/edit?invitationId=inv_a6109d96-8b96-4663-98e7-450c96bb4e38&page=0_0#
 
-## Task
+## 📋 Task
 https://app.clickup.com/31613932/v/b/li/900800098665
