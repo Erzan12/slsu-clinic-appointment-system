@@ -2,8 +2,12 @@
     The system's goal is to replace the clinic's manual, paper-based workflow with a completely digital, paperless one. It makes it possible for university staff and students to schedule dental and medical appointments online, cutting down on wait times and doing away with the necessity for in-person booking.
     The software increases productivity for patients, clinic employees, physicians, and dentists by digitizing records and automating appointment scheduling. It unifies schedules, medical findings, services, and patient data into one easily accessible system. Overall, the project improves service delivery by streamlining, streamlining, and streamlining clinic operations.
 
+---
+
 ## 🏥 SLSU Clinic Management System
 A Laravel-based web application designed to digitize and streamline the operations of the Southern Leyte State University (SLSU) Clinic. 
+
+---
 
 ## 📌 Features
 - 📅 Online Appointment Booking
@@ -20,12 +24,16 @@ A Laravel-based web application designed to digitize and streamline the operatio
   - ✅ Patients can rate services and provide feedback.
 - 🔐 Role-Based Access Control
   - ✅ Supports Admins, Patients, and Specialists.
+ 
+---
 
 ## 🧱 System Architecture
 Built using:
 - Laravel (PHP Framework)
 - MySQL Database will migrate to PostgreSQL
 - MVC Architecture
+
+---
 
 ## 🗂️ Database Structure (ERD Overview)
 erDiagram
@@ -138,9 +146,71 @@ erDiagram
 ```bash
 git clone https://github.com/your-repo/slsu-clinic-system.git
 ```
+2. Navigate into the project folder:
+```bash
+cd slsu-clinic-system
+```
+3. Install dependencies:
+```bash
+composer install
+npm install && npm run dev
+```
+4. Copy .env file:
+```bash
+cp .env.example .env
+```
+5. Configure your database in .env
+6. Generate app key:
+```bash
+php artisan key:generate
+```
+7. Link storage to support images:
+```bash
+php artisan storage:link
+```
+8. Start the server:
+```bash
+php artisan serve
+```
+9. Start local dev:
+```bash
+npm run dev
+```
+
+---
+
+## 🔐 User Roles
+#### - Admin
+ - Manage users, services, and system data.
+#### - Patient
+ - Book appointments and view records.
+#### - Specialist (Doctor/Dentist)
+ - Manage schedules and provide medical findings.
+
+---
+
+## 🎯 Objectives
+- Eliminate manual, paper-based processes
+- Reduce patient waiting time
+- Improve clinic workflow efficiency
+- Provide centralized and secure data management
+
+---
+
+## 📈 Future Improvements
+- SMS/Email Notifications
+- Mobile App Integration
+- Analytics Dashboard
+- Telemedicine Support
+
+---
 
 ## 🛢 Database Schema
 https://lucid.app/lucidchart/75038d9c-e75c-4d05-9500-691f67928e85/edit?invitationId=inv_a6109d96-8b96-4663-98e7-450c96bb4e38&page=0_0#
 
+---
+
 ## 📋 Task
 https://app.clickup.com/31613932/v/b/li/900800098665
+
+---
