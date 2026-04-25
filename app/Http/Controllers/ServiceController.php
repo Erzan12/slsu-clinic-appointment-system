@@ -83,6 +83,8 @@ class ServiceController extends Controller
     public function edit($id)
     {
         //
+        $service = Service::findOrFail($id);
+        return view('admins.services.edit', compact('service'));
     }
 
     /**
@@ -92,9 +94,25 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Service $service)
     {
         //
+        $validatedData = $request->validate([
+            'image'         =>  'required|string',
+            'name'          =>  'required|string',
+            'description'   =>  'nullable|string',
+        ]);
+
+        $id = Crypt::decrypt($request->id);
+        $service = Service::findOrFail($id);
+
+        $service->update($validatedData);
+
+        $service->save();
+
+        return redirect()->route('admins.services.index', ['' => $service->service_id])
+                        ->with('success', 'service record updated successfully.');
+
     }
 
     /**
