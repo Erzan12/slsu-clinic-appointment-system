@@ -1,6 +1,5 @@
 # 📖 Readme
-    The system's goal is to replace the clinic's manual, paper-based workflow with a completely digital, paperless one. It makes it possible for university staff and students to schedule dental and medical appointments online, cutting down on wait times and doing away with the necessity for in-person booking.
-    The software increases productivity for patients, clinic employees, physicians, and dentists by digitizing records and automating appointment scheduling. It unifies schedules, medical findings, services, and patient data into one easily accessible system. Overall, the project improves service delivery by streamlining, streamlining, and streamlining clinic operations.
+The system's goal is to replace the clinic's manual, paper-based workflow with a completely digital, paperless one. It makes it possible for university staff and students to schedule dental and medical appointments online, cutting down on wait times and doing away with the necessity for in-person booking. The software increases productivity for patients, clinic employees, physicians, and dentists by digitizing records and automating appointment scheduling. It unifies schedules, medical findings, services, and patient data into one easily accessible system. Overall, the project improves service delivery by streamlining, streamlining, and streamlining clinic operations.
 
 ---
 
