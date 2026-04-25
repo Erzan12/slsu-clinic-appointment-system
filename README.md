@@ -7,7 +7,7 @@ A Laravel-based web application designed to digitize and streamline the operatio
 
 ## 📌 Features
 - 📅 Online Appointment Booking
- - ✅ Patients can schedule appointments without visiting the clinic.
+  - ✅ Patients can schedule appointments without visiting the clinic.
 - 👨‍⚕️ Specialist Scheduling
  - ✅ Doctors and dentists can manage their available schedules.
 - 🧾 Patient Information Management
