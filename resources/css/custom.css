@@ -181,13 +181,17 @@
 
 /* End of Navbar custom css */
 
+/* Side bar custom css */
+
 .sidebar-wrapper {
-  background: rgba(32, 51, 84, 0.6); /* semi-transparent */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  background: rgba(32, 51, 84, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
   width: 250px;
+  height: 100vh;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .sidebar-image-wrapper {
@@ -205,22 +209,95 @@
 }
 
 .side-link {
-  padding: 8px 8px 8px 8px;
-  margin: 4px 0;
+  position: relative;
+  display: block;
+  padding: 10px 12px;
+  margin: 6px 0;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 15px;
-  display: block;
-  transition: 0.3s;
+  font-weight: 500;
+  transition: all 0.25s ease;
 }
 
-.link-active {
-  border-bottom-style: solid;
+.side-link {
+  position: relative;
+  display: block;
+  padding: 10px 12px;
+  margin: 6px 0;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+.side-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  transition: width 0.3s ease;
+}
+
+.side-link:hover::after {
+  width: 100%;
+}
+
+.link-active::after {
+  width: 100%;
+}
+
+.sidebar-image-wrapper {
+  top: 20px;
+  text-align: center;
+}
+
+.sidebar-image-wrapper img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.sidebar-image-wrapper h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sidebar-nav-wrapper {
+  padding: 20px;
+  margin-top: 140px;
+}
+
+.sidebar-collapsed {
+  width: 100px;
+}
+
+/* Hide text when collapsed */
+.sidebar-collapsed .side-link {
+  text-align: center;
+  font-size: 0;
+}
+
+.sidebar-collapsed .side-link::after {
+  display: none;
+}
+
+/* Optional: hide title */
+.sidebar-collapsed h4 {
+  display: none;
+}
+
+.sidebar-collapsed img {
+  width: 40px; /* smaller but still visible */
 }
 
 .side-link:hover {
-  background-color: #f1f1f1;
-  color: black;
+  transform: translateX(4px);
 }
+
+/* End of side bar custom css */
 
 .bg-image {
     background-image: url("{{ asset('images/homepage.jpg') }}");
