@@ -213,3 +213,9 @@ https://lucid.app/lucidchart/75038d9c-e75c-4d05-9500-691f67928e85/edit?invitatio
 https://app.clickup.com/31613932/v/b/li/900800098665
 
 ---
+
+## 👨‍💻 Author
+
+Capstone Project developed for Southern Luzon State University (SLSU)
+
+---
