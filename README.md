@@ -171,10 +171,6 @@ php artisan storage:link
 ```bash
 php artisan serve
 ```
-9. Start local dev:
-```bash
-npm run dev
-```
 
 ---
 
