@@ -7,19 +7,19 @@ A Laravel-based web application designed to digitize and streamline the operatio
 
 ## 📌 Features
 - 📅 Online Appointment Booking
- ✅ Patients can schedule appointments without visiting the clinic.
+ - ✅ Patients can schedule appointments without visiting the clinic.
 - 👨‍⚕️ Specialist Scheduling
- ✅ Doctors and dentists can manage their available schedules.
+ - ✅ Doctors and dentists can manage their available schedules.
 - 🧾 Patient Information Management
- ✅ Centralized storage of patient records and personal details.
+ - ✅ Centralized storage of patient records and personal details.
 - 📊 Appointment Tracking
- ✅ Monitor appointment statuses (pending, approved, completed, etc.).
+ - ✅ Monitor appointment statuses (pending, approved, completed, etc.).
 - 📝 Medical Findings
- ✅ Record diagnoses and notes for each appointment.
+ - ✅ Record diagnoses and notes for each appointment.
 - ⭐ Ratings & Feedback
- ✅ Patients can rate services and provide feedback.
+ - ✅ Patients can rate services and provide feedback.
 - 🔐 Role-Based Access Control
- ✅ Supports Admins, Patients, and Specialists.
+ - ✅ Supports Admins, Patients, and Specialists.
 
 ## 🧱 System Architecture
 Built using:
