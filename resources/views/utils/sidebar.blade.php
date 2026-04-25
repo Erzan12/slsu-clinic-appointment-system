@@ -1,7 +1,7 @@
 <div class="sidebar-wrapper">
     <div class="position-relative d-flex justify-content-center">
         <div class="position-absolute sidebar-image-wrapper ">
-            <img src="https://trace.southernleyte.org.ph/assets/img/slsu-logo.png" alt="">
+            <img src="{{ asset('storage/defaults/slsu-cas-logo.png') }}" alt="">
             <h4 class="text-light">SLSU - CAS</h4>
         </div>
     </div>

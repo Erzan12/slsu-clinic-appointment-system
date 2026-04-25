@@ -6,7 +6,7 @@
         <div class="col-md-6 col-lg-4 ">
             <div class="position-relative">
                 <div class="position-absolute start-50 translate-middle z-1 image-wrapper">
-                    <img src="https://user.southernleyte.org.ph/files/slsu-logo.png" alt="">
+                    <img src="{{ asset('storage/defaults/slsu-cas-logo.png') }}" alt="">
                 </div>
             </div>
             <div class="card shadow form-wrapper">
