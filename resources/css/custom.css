@@ -296,6 +296,10 @@
   display: none;
 }
 
+.sidebar-collapsed .side-submenu .link-active {
+  display: none;
+}
+
 .sidebar-collapsed img {
   width: 40px; /* smaller but still visible */
 }
