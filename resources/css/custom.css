@@ -191,7 +191,7 @@
   width: 250px;
   height: 100vh;
   position: relative;
-  transition: all 0.3s ease;
+  transition: width 0.3s ease;
 }
 
 .sidebar-image-wrapper {
@@ -210,7 +210,7 @@
 
 .side-link {
   position: relative;
-  display: block;
+  display: flex;
   padding: 10px 12px;
   margin: 6px 0;
   color: rgba(255, 255, 255, 0.85);
@@ -218,15 +218,8 @@
   font-size: 15px;
   font-weight: 500;
   transition: all 0.25s ease;
-}
-
-.side-link {
-  position: relative;
-  display: block;
-  padding: 10px 12px;
-  margin: 6px 0;
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
+  align-items: center;
+  gap: 8px
 }
 
 .side-link::after {
@@ -244,9 +237,23 @@
   width: 100%;
 }
 
-.link-active::after {
-  width: 100%;
+.link-active {
+  background: rgba(255,255,255,0.1);
+  border-left: 4px solid #4facfe;
 }
+
+.side-link.link-active::after {
+  width: 0;
+}
+
+.link-active:hover {
+  transform: none;
+  background: rgba(255,255,255,0.15);
+}
+
+/* .link-active::after {
+  width: 100%;
+} */
 
 .sidebar-image-wrapper {
   top: 20px;
@@ -297,7 +304,57 @@
   transform: translateX(4px);
 }
 
+.sidebar-collapsed .link-text {
+  display: none;
+}
+
+.sidebar-collapsed .side-link {
+  justify-content: center;
+}
+
+#sidebarToggle {
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+  background: white;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
 /* End of side bar custom css */
+
+/* Drop down menu custom css */
+.side-submenu {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  overflow: hidden;
+  max-height: 500px;
+  transition: max-height 0.3s ease;
+}
+
+.side-submenu a {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+/* collapsed state */
+.side-submenu.collapsed {
+  max-height: 0;
+  padding-left: 0;
+}
+
+.side-submenu {
+  display: none;
+}
+
+.side-submenu.open {
+  display: block;
+}
+
+/* End Dropdown custom css */
 
 .bg-image {
     background-image: url("{{ asset('images/homepage.jpg') }}");
