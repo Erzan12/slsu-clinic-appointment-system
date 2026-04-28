@@ -53,7 +53,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        $route = '/login';
+        $route = '/';
         if(auth()->user()->account_type != 3) {
             $route = '/admin';
         }

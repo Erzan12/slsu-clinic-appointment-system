@@ -21,7 +21,7 @@
 
           @guest
             <li class="nav-item">
-              <a class="nav-link btn btn-outline-primary px-5 text-light" aria-current="page" href="{{route('login')}}">Login</a>
+              <a class="nav-link btn btn-modern px-4" href="{{route('login')}}">Login</a>
             </li>
           @endguest
 

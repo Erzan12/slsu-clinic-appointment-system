@@ -96,23 +96,22 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
         $validatedData = $request->validate([
-            'image'         =>  'required|string',
-            'name'          =>  'required|string',
-            'description'   =>  'nullable|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'name' => 'required|string',
+            'description' => 'nullable|string',
         ]);
 
-        $id = Crypt::decrypt($request->id);
-        $service = Service::findOrFail($id);
+        // handle image upload
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('services', 'public');
+            $validatedData['image'] = $path;
+        }
 
         $service->update($validatedData);
 
-        $service->save();
-
-        return redirect()->route('admins.services.index', ['' => $service->service_id])
-                        ->with('success', 'service record updated successfully.');
-
+        return redirect()->route('services.index')
+            ->with('success', 'Service updated successfully.');
     }
 
     /**
