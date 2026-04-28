@@ -361,7 +361,7 @@
 /* End Dropdown custom css */
 
 .bg-image {
-    background-image: url("{{ asset('images/homepage.jpg') }}");
+    /* background-image: url("/images/homepage.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -429,8 +429,8 @@ section {
 }
 
 .cta-section {
-    background: linear-gradient(rgba(32,51,84,0.9), rgba(32,51,84,0.9)),
-                url("{{ asset('images/homepage.jpg') }}");
+    background: linear-gradient(rgba(32,51,84,0.9), rgba(32,51,84,0.9));
+                /* url("/images/homepage.jpg"); */
     background-size: cover;
     background-position: center;
     padding: 100px 0;
