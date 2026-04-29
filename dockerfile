@@ -1,3 +1,20 @@
+# -----------------------------
+# Stage 1: Build frontend assets
+# -----------------------------
+FROM node:18 AS node_builder
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+
+# -----------------------------
+# Stage 2: PHP application
+# -----------------------------
 FROM php:8.2-cli
 
 # Install system dependencies
@@ -13,20 +30,21 @@ RUN apt-get update && apt-get install -y \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
+
+# Copy app
 COPY . .
 
-# Install PHP deps
+# Copy built assets from Node stage
+COPY --from=node_builder /app/public/build ./public/build
+
+# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
-RUN npm install
 
-# Build your project in production
-RUN npm run build
-
-# Clear and rebuild config using Render env vars
+# Laravel optimizations
 RUN php artisan config:clear && \
     php artisan cache:clear
 
-# Start app + run migrations
+# Start app
 CMD php artisan optimize:clear && \
     php artisan migrate --force && \
     php artisan storage:link && \
