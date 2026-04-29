@@ -17,6 +17,10 @@ COPY . .
 
 # Install PHP deps
 RUN composer install --no-dev --optimize-autoloader
+RUN npm install
+
+# Build your project in production
+RUN npm run build
 
 # Clear and rebuild config using Render env vars
 RUN php artisan config:clear && \
