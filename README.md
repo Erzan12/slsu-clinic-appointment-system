@@ -215,7 +215,7 @@ https://app.clickup.com/31613932/v/b/li/900800098665
 ---
 
 ## 👨‍💻 Author
-
-Capstone Project developed for Southern Luzon State University (SLSU)
+Erzan
+Capstone Project developed for Southern Leyte State University (SLSU)
 
 ---
