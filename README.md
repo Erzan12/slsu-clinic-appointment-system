@@ -4,7 +4,7 @@ The system's goal is to replace the clinic's manual, paper-based workflow with a
 ---
 
 ## 🏥 SLSU Clinic Management System
-A Laravel-based web application designed to digitize and streamline the operations of the Southern Leyte State University (SLSU) Clinic. 
+A Laravel-based web application designed to digitize and streamline the operations of the Southern Leyte State University (SLSU) Clinic, this project also was my first Freelance Project aside of being my Capstone Project.
 
 ---
 
