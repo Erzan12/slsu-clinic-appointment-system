@@ -20,8 +20,11 @@ class Schedule extends Model
 
 
     public function service()
+    // {
+    //     return $this->belongsTo(Service::class, 'service_id', 'id');
+    // }
     {
-        return $this->belongsTo(Service::class, 'service_id', 'id');
+        return $this->belognsTo(Service::class);
     }
 
     public function specialist()
@@ -29,8 +32,13 @@ class Schedule extends Model
         return $this->belongsTo(Specialist::class, 'specialist_id', 'id');
     }
 
-    public function appointment()
+    // public function appointment()
+    // {
+    //     return $this->hasOne(Appointment::class, 'id', 'schedule_id');
+    // }
+
+    public function appointments()
     {
-        return $this->hasOne(Appointment::class, 'id', 'schedule_id');
+        return $this->hasMany(Appointment::class);
     }
 }
