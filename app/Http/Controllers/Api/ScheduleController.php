@@ -68,4 +68,34 @@ class ScheduleController extends Controller
             ]),
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'service_id' => 'required|exists:services,id',
+            'date' => 'required|date|after_or_equal:today',
+            'time_start' => 'required|date_format:H:i',
+            'time_end' => 'required|date_format:H:i|after:time_start',
+            'quota' => 'required|integer|min:1',
+            'slot_duration_minutes' => 'nullable|integer|min:5',
+            'slot_capacity' => 'nullable|integer|min:1',
+        ]);
+
+        $schedule = Schedule::create([
+            'specialist_id' => $request->user()->user_id,
+            'service_id' => $request->service_id,
+            'date' => $request->date,
+            'time_start' => $request->time_start,
+            'time_end' => $request->time_end,
+            'quota' => $request->quota,
+            'slot_duration_minutes' => $request->slot_duration_minutes ?? 30,
+            'slot_capacity' => $request->slot_capacity, // null = auto-complete, as desgined,
+            'is_active' => true,
+        ]);
+
+        return response()->json([
+            'status' => true, 
+            'message' => $schedule
+        ]);
+    }
 }
