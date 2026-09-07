@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\{AuthController, ScheduleController, AppointmentController, PublicController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/login', [AuthController::class, 'login']);
+
+// Public - no auth, powers the homepage preview
+Route::get('/public/availability', [PublicController::class, 'upcomingAvailability']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/user', fn (Request $r) => $r->user());
+
+    Route::get('/schedules', [ScheduleController::class, 'index']);
+    Route::get('/schedules/{schedule}/availability', [ScheduleController::class, 'Api\ScheduleController@availability']);
+
+    Route::get('/appointments', [AppointmentController::class, 'index']);
+    Route::get('/appointments', [AppointmentController::class, 'store']);
+    Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy']);
 });
