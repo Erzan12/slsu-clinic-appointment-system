@@ -16,7 +16,10 @@ class Schedule extends Model
         'time_end',
         'quota',
         'date',
-        'flag'
+        'flag',
+        'slot_duration_minutes',
+        'slot_capacity',
+        'is_active',
     ];
 
 

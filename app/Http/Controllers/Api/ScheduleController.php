@@ -47,9 +47,9 @@ class ScheduleController extends Controller
 
         $bookedCounts = Appointment::where('schedule_id', $schedule->id)
             ->whereNotIn('status', [4]) // exclude rejected
-            ->selectRaw('preferred_time, count(*) as total')
-            ->groupBy('preferred_time')
-            ->pluck('total', 'preferred_time');
+            ->selectRaw("TO_CHAR(preferred_time, 'HH24:MI') as slot_time, count(*) as total")
+            ->groupBy('slot_time')
+            ->pluck('total', 'slot_time');
 
         $totalBooked = $bookedCounts->sum();
 

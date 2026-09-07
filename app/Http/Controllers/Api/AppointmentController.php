@@ -24,12 +24,12 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'schedule' => 'required|exists:schedules,id',
-            'preffered_time' => 'required',
+            'schedule_id' => 'required|exists:schedules,id',
+            'preferred_time' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email',
-            'gender' => 'required',
+            'gender' => 'required|integer|in:1,2,3',
             'contact_number' => 'required',
             'address' => 'required',
         ]);
