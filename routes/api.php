@@ -25,9 +25,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', fn (Request $r) => $r->user());
 
     Route::get('/schedules', [ScheduleController::class, 'index']);
+    Route::post('/schedules', [ScheduleController::class, 'store']);
     Route::get('/schedules/{schedule}/availability', [ScheduleController::class, 'availability']);
 
     Route::get('/appointments', [AppointmentController::class, 'index']);
-    Route::get('/appointments', [AppointmentController::class, 'store']);
+    Route::post('/appointments', [AppointmentController::class, 'store']);
     Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy']);
 });
