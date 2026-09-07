@@ -10,6 +10,21 @@ use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
 {
+    private function generateSlots(Schedule $schedule): array
+    {
+        $slots = [];
+        $datePart = Carbon::parse($schedule->date)->format('Y-m-d');
+        $current = Carbon::parse($datePart.' '.$schedule->time_start);
+        $end = Carbon::parse($datePart.' '.$schedule->time_end);
+
+        while ($current->lessThan($end)) {
+            $slots[] = $current->format('H:i');
+            $current->addMinutes($schedule->slot_duration_minutes);
+        }
+
+        return $slots;
+    }
+
     // For patients: list open days for a given service (used on the booking screen)
     public function index(Request $request)
     {
@@ -27,14 +42,14 @@ class ScheduleController extends Controller
     // Availability breakdown for one specific schedule (day + service + specialist)
     public function availability(Schedule $schedule)
     {
-        $slots = $this.generateSlots($schedule);
-        $slotCapacity = $schedule->slot_capacity ?? (int) ceil($schedule->quota / max(counts($slots), 1));
+        $slots = $this->generateSlots($schedule);
+        $slotCapacity = $schedule->slot_capacity ?? (int) ceil($schedule->quota / count($slots));
 
         $bookedCounts = Appointment::where('schedule_id', $schedule->id)
             ->whereNotIn('status', [4]) // exclude rejected
             ->selectRaw('preferred_time, count(*) as total')
             ->groupBy('preferred_time')
-            ->pluck('total', 'preffered_time');
+            ->pluck('total', 'preferred_time');
 
         $totalBooked = $bookedCounts->sum();
 
@@ -52,19 +67,5 @@ class ScheduleController extends Controller
                 'is_full' => $bookedCounts->get($time, 0) >= $slotCapacity,
             ]),
         ]);
-    }
-
-    private function generateSlots(Schedule $schedule): array
-    {
-        $slots = [];
-        $current = Carbon::parse($schedule->date.' '.$schedule->time_start);
-        $end = Carbon::parse($schedule->date.' '.$schedule->time_end);
-
-        while ($current->lessThan($end)) {
-            $slots[] = $current->format('H:i');
-            $current->addMinutes($schedule->slot_duration_minutes);
-        }
-
-        return $slots;
     }
 }
