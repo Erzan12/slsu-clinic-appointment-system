@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', fn (Request $r) => $r->user());
 
     Route::get('/schedules', [ScheduleController::class, 'index']);
-    Route::get('/schedules/{schedule}/availability', [ScheduleController::class, 'Api\ScheduleController@availability']);
+    Route::get('/schedules/{schedule}/availability', [ScheduleController::class, 'availability']);
 
     Route::get('/appointments', [AppointmentController::class, 'index']);
     Route::get('/appointments', [AppointmentController::class, 'store']);
