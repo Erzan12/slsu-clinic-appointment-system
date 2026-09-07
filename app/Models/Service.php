@@ -13,6 +13,8 @@ class Service extends Model
         'image',
         'name',
         'description',
+        'requires_approval',
+        'is_active'
     ];
 
     public function schedules()
