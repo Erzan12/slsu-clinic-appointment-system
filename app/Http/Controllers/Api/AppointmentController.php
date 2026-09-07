@@ -83,4 +83,45 @@ class AppointmentController extends Controller
 
         return response()->json(['status' => true, 'message' => 'Appointment cancelled.']);
     }
+
+    public function approve(Request $request, Appointment $appointment) 
+    {
+        $this->authorizeSpecialist($request, $appointment);
+
+        $appointment->update(['status' => 1]); // Approved
+
+        return response()->json(['status' => true, 'message' => 'Appointment approved.']);
+    }
+
+    public function reject(Request $request, Appointment $appointment)
+    {
+        $this->authorizeSpecialist($request, $appointment);
+
+        $appointment->update(['status' => 4]); // Rejected
+
+        return response()->json(['status' => true, 'message' => 'Appointment rejected.']);
+    }
+
+    public function cancel(Request $request, Appointment $appointment)
+    {
+        $this->authorizeSpecialist($request, $appointment);
+
+        if ($appointment->status == 4) {
+            return response()->json(['status' => false, 'message' => 'Appointment is already rejected.'], 422);
+        }
+
+        $appointment->update(['status' => 4]); // reuse Rejected as the "no longer holding a slot" status
+
+        return response()->json(['status' => true, 'message' => 'Appointment cancelled - slot released.']);
+    }
+
+    private function authorizedSpecialist(Request $request, Appointment $appointment)
+    {
+        $user = $request->user();
+        $specialistId = $appointment->schedule->specialist_id;
+
+        if ($user->account_type != 2 || $specialistId != $user->user_id) {
+            abort(403, 'Not authorized to manage this appointment.');
+        }
+    }
 }

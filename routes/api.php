@@ -30,5 +30,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/appointments', [AppointmentController::class, 'index']);
     Route::post('/appointments', [AppointmentController::class, 'store']);
+    Route::post('/appointments/{appointment}/approve', [AppointmentController::class, 'approve']);
+    Route::post('/appointments/{appointment}/reject', [AppointmentController::class, 'reject']);
+    Route::post('/appointments/{appointment}/cancel', [AppointmentController::class, 'cancel']);
     Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy']);
 });
