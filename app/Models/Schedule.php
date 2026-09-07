@@ -14,6 +14,7 @@ class Schedule extends Model
         'specialist_id',
         'time_start',
         'time_end',
+        'quota',
         'date',
         'flag'
     ];
