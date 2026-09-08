@@ -17,16 +17,16 @@ class Specialist extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->hasOne(User::class, 'user_id', 'id');
     }
 
     public function information()
     {
-        return $this->hasOne(Information::class, 'id', 'user_id');
+        return $this->hasOne(Information::class, 'user_id', 'id');
     }
 
     public function schedules()
     {
-        return $this->hasMany(Schedule::class, 'id', 'specialist_id');
+        return $this->hasMany(Schedule::class, 'specialist_id', 'id');
     }
 }
