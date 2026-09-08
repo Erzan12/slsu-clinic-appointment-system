@@ -34,6 +34,8 @@ class StatusHelper
             return 2;
         } else if (Str::startsWith('done', $status)) {
             return 3;
+        } else if (Str::startsWith('cancelled', $status)) {
+            return 5;
         } else {
             return 4;
         }
