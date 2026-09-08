@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\{AuthController, ScheduleController, AppointmentController, PublicController};
+use App\Http\Controllers\Api\{AuthController, ScheduleController, AppointmentController, PublicController, RatingController, FindingController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +34,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/appointments/{appointment}/reject', [AppointmentController::class, 'reject']);
     Route::post('/appointments/{appointment}/cancel', [AppointmentController::class, 'cancel']);
     Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy']);
+
+    Route::post('/appointments/{appointment}/finding', [FindingController::class, 'store']);
+    Route::get('/appointments/{appointment}/finding', [FindingController::class, 'show']);
+
+    Route::post('/appointments/{appointment}/rating', [RatingController::class, 'store']);
 });

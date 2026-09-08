@@ -16,6 +16,8 @@ class StatusHelper
                 return 'To be rate';
             case 4:
                 return 'Rejected';
+            case 5: 
+                return 'Cancelled';
             default:
                 return 'Done';
         }
