@@ -20,7 +20,7 @@ class PublicController extends Controller
             ->get();
 
         $bookedCounts = Appointment::whereIn('schedule_id', $schedules->pluck('id'))
-            ->whereNotIn('status', [4])
+            ->whereNotIn('status', [4, 5])
             ->selectRaw('schedule_id, count(*) as total')
             ->groupBy('schedule_id')
             ->pluck('total', 'schedule_id');
@@ -31,7 +31,7 @@ class PublicController extends Controller
             return [
                 'schedule_id' => $schedule->id,
                 'service' => $schedule->service->name,
-                'specialist_name' => $schedule->specialist->name ?? null,
+                'specialist_name' => optional($schedule->specialist->user)->fullName(),
                 'date' => $schedule->date,
                 'time_start' => $schedule->time_start,
                 'time_end' => $schedule->time_end,
