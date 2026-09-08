@@ -37,7 +37,7 @@ class AppointmentController extends Controller
         return DB::transaction(function () use ($request) {
             $schedule = Schedule::lockForUpdate()->findOrFail($request->schedule_id);
 
-            $totalBooked = Appointment::where('schedule_id', $schedule->id)->whereNotIn('status', [4])->count();
+            $totalBooked = Appointment::where('schedule_id', $schedule->id)->whereNotIn('status', [4, 5])->count();
             if ($totalBooked >= $schedule->quota) {
                 return response()->json(['status' => false, 'message' => 'This day is fully booked.'], 422);
             }
@@ -86,7 +86,7 @@ class AppointmentController extends Controller
 
     public function approve(Request $request, Appointment $appointment) 
     {
-        $this->authorizeSpecialist($request, $appointment);
+        $this->authorizedSpecialist($request, $appointment);
 
         $appointment->update(['status' => 1]); // Approved
 
@@ -95,7 +95,7 @@ class AppointmentController extends Controller
 
     public function reject(Request $request, Appointment $appointment)
     {
-        $this->authorizeSpecialist($request, $appointment);
+        $this->authorizedSpecialist($request, $appointment);
 
         $appointment->update(['status' => 4]); // Rejected
 
@@ -104,13 +104,13 @@ class AppointmentController extends Controller
 
     public function cancel(Request $request, Appointment $appointment)
     {
-        $this->authorizeSpecialist($request, $appointment);
+        $this->authorizedSpecialist($request, $appointment);
 
-        if ($appointment->status == 4) {
+        if (in_array($appointment->status, [4, 5])) {
             return response()->json(['status' => false, 'message' => 'Appointment is already rejected.'], 422);
         }
 
-        $appointment->update(['status' => 4]); // reuse Rejected as the "no longer holding a slot" status
+        $appointment->update(['status' => 5]); // Cancelled — distinct from Rejected now
 
         return response()->json(['status' => true, 'message' => 'Appointment cancelled - slot released.']);
     }

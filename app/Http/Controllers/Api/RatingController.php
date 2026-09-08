@@ -13,7 +13,7 @@ class RatingController extends Controller
     {
         $user = $request->user();
 
-        if ($user->account_type != 2 || $appointment->patient != $user->user_id) {
+        if ($user->account_type != 3 || $appointment->patient_id != $user->user_id) {
             abort(403, 'Not authorized to rate for this appointment.');
         }
 
@@ -43,6 +43,6 @@ class RatingController extends Controller
 
         $appointment->update(['status' => 3]); // Done
 
-        return response()->json(['status' => true, rating => $rating]);
+        return response()->json(['status' => true, 'rating' => $rating]);
     }
 }

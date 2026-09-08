@@ -46,7 +46,7 @@ class ScheduleController extends Controller
         $slotCapacity = $schedule->slot_capacity ?? (int) ceil($schedule->quota / count($slots));
 
         $bookedCounts = Appointment::where('schedule_id', $schedule->id)
-            ->whereNotIn('status', [4]) // exclude rejected
+            ->whereNotIn('status', [4, 5]) // exclude rejected
             ->selectRaw("TO_CHAR(preferred_time, 'HH24:MI') as slot_time, count(*) as total")
             ->groupBy('slot_time')
             ->pluck('total', 'slot_time');
