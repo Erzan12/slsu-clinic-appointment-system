@@ -104,7 +104,7 @@ class AppointmentController extends Controller
 
     public function cancel(Request $request, Appointment $appointment)
     {
-        $this->authorizedSpecialist($request, $appointment);
+        $this->authorizeCancel($request, $appointment);
 
         if (in_array($appointment->status, [4, 5])) {
             return response()->json(['status' => false, 'message' => 'Appointment is already rejected.'], 422);
@@ -115,12 +115,21 @@ class AppointmentController extends Controller
         return response()->json(['status' => true, 'message' => 'Appointment cancelled - slot released.']);
     }
 
-    private function authorizedSpecialist(Request $request, Appointment $appointment)
+    private function authorizeCancel(Request $request, Appointment $appointment)
     {
         $user = $request->user();
-        $specialistId = $appointment->schedule->specialist_id;
+        $isPatient = $user->account_type === 3 && $appointment->patient_id == $user->user_id;
+        $isOwningSpecialist = $user->account_type == 2 && $appointment->schedule->specialist_id == $user->user_id;
 
-        if ($user->account_type != 2 || $specialistId != $user->user_id) {
+        if (! $isPatient && ! $isOwningSpecialist) {
+            abort(403, 'Not authorized to cancel this appointment.');
+        }
+    }
+
+    private function authorizeSpecialistOnly(Request $request, Appointment $appointment)
+    {
+        $user = $request->user();
+        if ($user->account_type != 2 || $appointment->schedule->specialist_id != $user->user_id) {
             abort(403, 'Not authorized to manage this appointment.');
         }
     }
