@@ -29,7 +29,7 @@ class AppointmentController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email',
-            'gender' => 'required|integer|in:1,2,3',
+            'gender' => 'required|integer|in:1,2',
             'contact_number' => 'required',
             'address' => 'required',
         ]);
