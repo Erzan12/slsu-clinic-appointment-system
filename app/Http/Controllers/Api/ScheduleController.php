@@ -30,7 +30,7 @@ class ScheduleController extends Controller
     {
         $query = Schedule::with('service')
             ->where('is_active', true)
-            ->where('data', '>=', now()->format('Y-m-d'));
+            ->where('date', '>=', now()->format('Y-m-d'));
 
         if ($request->filled('service_id')) {
             $query->where('service_id', $request->service_id);
