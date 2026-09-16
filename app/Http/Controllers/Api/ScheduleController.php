@@ -36,6 +36,10 @@ class ScheduleController extends Controller
             $query->where('service_id', $request->service_id);
         }
 
+        if ($request->boolean('mine')) {
+            $query->where('specialist_id', $request->user()->user_id);
+        }
+
         return response()->json($query->orderBy('date')->get());
     }
 
