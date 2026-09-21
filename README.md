@@ -176,6 +176,24 @@ php artisan storage:link
 php artisan serve
 ```
 
+## Dockerfile Supabase Migration commands
+1. Fresh DB with seed data
+```bash
+CMD php artisan optimize:clear && \
+    php artisan migrate:fresh --force && \
+    php artisan db:seed --force && \
+    php artisan storage:link && \
+    php artisan config:cache && \
+    php artisan serve --host=0.0.0.0 --port=10000
+```
+2. Run new migrations without resetting DB
+```bash
+CMD php artisan optimize:clear && \
+    php artisan migrate --force && \
+    php artisan storage:link && \
+    php artisan config:cache && \
+    php artisan serve --host=0.0.0.0 --port=10000
+```
 ---
 
 ## 🔐 User Roles
